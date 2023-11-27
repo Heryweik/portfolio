@@ -24,26 +24,16 @@ export default function HomeSection() {
         <div className="flex items-center font-bold  text-base sm:text-lg md:text-xl lg:text-2xl tracking-[.5rem] border-l-2 border-black dark:border-white">
           <h2 style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}>
             <span
-              className="bg-gradient-to-r from-purple to-pink text-transparent inline-block m-auto"
-              style={{
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                color: "transparent",
-              }}
+              className="text-black dark:text-white inline-block m-auto"
+              
             >
               Developer
             </span>
           </h2>
           <h2 style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}>
             <span
-              className="bg-gradient-to-r from-purple to-pink text-transparent inline-block m-auto"
-              style={{
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                color: "transparent",
-              }}
+              className="text-black dark:text-white inline-block m-auto"
+              
             >
               Junior Web
             </span>
@@ -65,7 +55,7 @@ export default function HomeSection() {
         </div>
       </div>
 
-      <div className="bg-purple/30 dark:bg-pink/30 w-full sm:w-[80%] md:w-2/3 h-1/4 absolute right-0 bottom-[20%] md:bottom-1/4 sm:rounded-s-2xl rounded-e-none z-20 flex">
+      <div className="bg-purple/30 dark:bg-pink/30 w-full sm:w-[80%] md:w-2/3 h-[18%] md:h-1/4 absolute right-0 bottom-[20%] md:bottom-1/4 sm:rounded-s-2xl rounded-e-none z-20 flex">
         <div className="flex-1 relative flex items-center ml-4 sm:ml-14 md:ml-28">
           <Button name="About me" Icon={FaArrowRight} />
         </div>

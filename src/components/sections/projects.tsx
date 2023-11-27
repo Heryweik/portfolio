@@ -39,13 +39,9 @@ interface Project {
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-
-  useEffect(() => {
-    // Seleccionar el primer proyecto cuando el componente se activa
-    if (projects.length > 0) {
-      setSelectedProject(projects[0]);
-    }
-  }, []);
+  const [selectedProjectIndex, setSelectedProjectIndex] = useState<
+    number | null
+  >(null);
 
   const projects: Project[] = [
     {
@@ -98,16 +94,33 @@ export default function Projects() {
     },
   ];
 
-  const handleProjectClick = (project: Project) => {
+  const handleProjectClick = (index: number) => {
+    // Si el índice actual es diferente al índice activo, actualizamos el estado
+    if (selectedProjectIndex !== index) {
+      setSelectedProjectIndex(index);
+    }
+  };
+
+  const handleProjectSelect = (project: Project) => {
     setSelectedProject(project);
   };
+
+  /* Le decimos que por defecto deje el primer proyecto seleccionado */
+  useEffect(() => {
+    if (projects.length > 0) {
+      setSelectedProjectIndex(0); 
+      setSelectedProject(projects[0]);
+    }
+  }, []);
 
   return (
     <>
       <div className="relative px-5 lg:px-16 py-10 w-full flex-1 flex flex-col text-center gap-4 justify-between">
         <div className="flex justify-between w-full">
-          <h1 className="font-bold flex-1 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-[1.5rem] text-center md:text-left"
-          data-aos="fade-up-right">
+          <h1
+            className="font-bold flex-1 text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-[1.5rem] text-center md:text-left"
+            data-aos="fade-up-right"
+          >
             <span
               className="bg-gradient-to-r from-purple to-pink text-transparent inline-block"
               style={{
@@ -126,26 +139,33 @@ export default function Projects() {
         </div>
 
         <div className="flex-1 flex flex-col justify-center items-center gap-4">
-          <div className=" w-full flex flex-col items-center p-5  border-2 border-purple/30 dark:border-pink/30  rounded-2xl gap-4"
-          data-aos="fade-up">
+          <div
+            className=" w-full flex flex-col items-center p-5  border-2 border-purple/30 dark:border-pink/30  rounded-2xl gap-4"
+            data-aos="fade-up"
+          >
             <h2 className="font-bold text-base sm:text-lg md:text-xl lg:text-2xl tracking-[.5rem]">
               Explore my projects
             </h2>
             <div className="flex flex-1 flex-wrap gap-5 lg:gap-20 justify-center">
-              {projects.map((project) => (
+              {projects.map((project, index) => (
                 <Proyect
                   key={project.name}
                   name={project.name}
                   image={project.image}
-                  onClick={() => handleProjectClick(project)}
+                  onClick={() => handleProjectClick(index)}
+                  onSelect={() => handleProjectSelect(project)}
+                  index={index}
+                  isSelected={selectedProjectIndex === index}
                 />
               ))}
             </div>
           </div>
 
           {selectedProject && (
-            <div className="flex flex-col lg:grid lg:grid-cols-5 gap-4"
-            data-aos="fade-up">
+            <div
+              className="flex flex-col lg:grid lg:grid-cols-5 gap-4"
+              data-aos="fade-up"
+            >
               <div className=" w-full p-5  border-2 border-purple/30 dark:border-pink/30  rounded-2xl lg:col-span-2 flex flex-col justify-center items-center gap-4">
                 <span className="font-bold text-base lg:text-lg">
                   {selectedProject.name}
@@ -164,8 +184,10 @@ export default function Projects() {
                 </div>
               </div>
 
-              <div className="flex-1 flex col-span-3 border-2 border-purple/30 dark:border-pink/30 rounded-2xl"
-              data-aos="fade-up">
+              <div
+                className="flex-1 flex col-span-3 border-2 border-purple/30 dark:border-pink/30 rounded-2xl"
+                data-aos="fade-up"
+              >
                 <Swiper
                   effect={"coverflow"}
                   grabCursor={true}
