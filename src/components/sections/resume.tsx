@@ -120,7 +120,7 @@ export default function Resume() {
               </div>
             </div>
 
-            <div className="p-5  border-2 border-purple/30 dark:border-pink/30  rounded-2xl flex flex-col items-center justify-center gap-4 w-full"
+            <div className="p-1 sm:p-5  border-2 border-purple/30 dark:border-pink/30  rounded-2xl flex flex-col items-center justify-center gap-4 w-full"
             data-aos="fade-up">
               <h2 className="font-bold text-base sm:text-lg md:text-xl lg:text-2xl tracking-[.5rem]">
                 Personal Skills
@@ -146,7 +146,7 @@ export default function Resume() {
               <h2 className="font-bold text-base sm:text-lg md:text-xl lg:text-2xl tracking-[.5rem]">
                 Hobbyes
               </h2>
-              <div className="flex gap-10">
+              <div className="flex gap-3 sm:gap-6 md:gap-10">
                 <div className="flex flex-col items-center gap-2">
                   <div className="p-2 rounded-lg border-[2px] border-pink dark:border-purple text-4xl">
                     <CgGym />

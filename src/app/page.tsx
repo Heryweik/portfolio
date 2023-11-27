@@ -154,7 +154,7 @@ export default function Home() {
           </button>
         </div>
         <div
-          className={`fixed top-1/2 right-3 transform -translate-y-1/2 h-auto bg-gradient-to-r from-purple/40 to-pink/40 transition-all duration-300 flex flex-col gap-4 justify-center items-center p-1 py-4 w-auto rounded-full z-20 element ${
+          className={`fixed top-1/2 right-3 transform -translate-y-1/2 h-auto bg-gradient-to-r from-purple/40 to-pink/40 transition-all duration-300 flex flex-col gap-4 justify-center items-center p-1 py-4 w-auto rounded-full z-50 element ${
             isTranslate
               ? ""
               : "opacity-0 translate-x-36 transition-all invisible "
@@ -224,13 +224,14 @@ export default function Home() {
 
         <section id="home" className=" min-h-screen w-full flex flex-col">
           <nav className=" w-full h-auto p-5 flex justify-center items-center gap-5 sticky top-0 z-30 bg-white dark:bg-black transition-all duration-300 ease-in-out">
-            <div className=" font-semibold flex h-10 items-center justify-evenly  flex-1">
+            <div className=" font-semibold flex h-10 items-center justify-center gap-5 flex-1">
               <div>
                 <button
-                  className="block lg:hidden text-2xl transition-transform duration-300 transform"
+                  className="block lg:hidden text-3xl transition-transform duration-300 transform m-auto"
                   onClick={handleMenuClick}
-                  style={{ transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)' }}
-                  
+                  style={{
+                    transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
+                  }}
                 >
                   {isOpen ? <MdOutlineZoomOutMap /> : <IoMenu />}
                 </button>
@@ -272,7 +273,7 @@ export default function Home() {
                 />
               </div>
 
-              <div className="flex items-center gap-5">
+              <div className="flex items-center  md:justify-center gap-5">
                 <div
                   className={`arrow-container ${
                     isClicked ? "clicked" : ""
@@ -306,9 +307,12 @@ export default function Home() {
                   <span className="slider left-1 bottom-1 md:before:left-[2px] md:before:bottom-[2px] before:w-[20px] before:h-[20px] md:before:w-[30px] md:before:h-[30px]"></span>
                 </label>
 
-                <div>
+                <div className="hidden md:block">
                   <Button name="Download CV" Icon={FaFileDownload} />
                 </div>
+                <button className="bg-pink dark:bg-purple p-3 rounded-full hover:bg-gradient-to-r hover:from-purple hover:to-pink hover:transition-all hover:duration-300 hover:ease-in-out block md:hidden">
+                  <FaFileDownload className="text-lg md:text-2xl" />
+                </button>
               </div>
             </div>
           </nav>
@@ -321,18 +325,17 @@ export default function Home() {
           className={`fixed top-0 left-0 w-full h-full ${
             isOpen ? "flex " : "hidden"
           } flex-col items-center justify-center bg-pink/5 dark:bg-purple/20 z-40 lg:invisible`}
-          
         >
           <div
             className=" py-20 w-[80%] relative gap-5 rounded-2xl  animate-fade element2   bg-gradient-to-r from-purple/40 to-pink/40 transition-all duration-300 flex flex-col  justify-center items-center  elemento "
             style={{ backdropFilter: "blur(10px)" }}
-            
           >
             <button
               className="absolute top-5 right-5 text-2xl "
-              onClick={handleMenuClick}>
-                <IoMdClose />
-              </button>
+              onClick={handleMenuClick}
+            >
+              <IoMdClose />
+            </button>
             <div className="flex items-center justify-center lg:justify-start gap-5 mb-5 ">
               <Circle Icon={FaGithub} />
               <Circle Icon={FaLinkedinIn} />
