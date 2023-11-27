@@ -2,6 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.element::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 9999px;
+  background: inherit;
+  filter: blur(1px);
+  backdrop-filter: blur(20px);
+  z-index: -1;
+}
+
+.elemento::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 1rem;
+  background: inherit;
+  filter: blur(1px);
+  backdrop-filter: blur(20px);
+  z-index: -1;
+}
+
 /* Barra de desplazamiento */
 /* Estilo para navegadores WebKit (Chrome, Safari, etc.) */
 ::-webkit-scrollbar {

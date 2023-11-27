@@ -65,7 +65,7 @@ export default function HomeSection() {
         </div>
       </div>
 
-      <div className="bg-purple/30 dark:bg-pink/30 w-2/3 h-1/4 absolute right-0 bottom-1/4 rounded-2xl rounded-e-none z-30 flex">
+      <div className="bg-purple/30 dark:bg-pink/30 w-2/3 h-1/4 absolute right-0 bottom-1/4 rounded-2xl rounded-e-none z-10 flex">
         <div className="flex-1 relative flex items-center ml-28">
           <Button name="About me" Icon={FaArrowRight} />
         </div>

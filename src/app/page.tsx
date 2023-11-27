@@ -154,12 +154,12 @@ export default function Home() {
           </button>
         </div>
         <div
-          className={`fixed top-1/2 right-3 transform -translate-y-1/2 h-auto bg-gradient-to-r from-purple/40 to-pink/40 transition-all duration-300 flex flex-col gap-4 justify-center items-center p-1 py-4 w-auto rounded-full z-30 ${
+          className={`fixed top-1/2 right-3 transform -translate-y-1/2 h-auto bg-gradient-to-r from-purple/40 to-pink/40 transition-all duration-300 flex flex-col gap-4 justify-center items-center p-1 py-4 w-auto rounded-full z-20 element ${
             isTranslate
               ? ""
               : "opacity-0 translate-x-36 transition-all invisible "
           }`}
-          style={{ backdropFilter: "blur(10px)" }}
+          /* style={{ backdropFilter: "blur(10px)" }} */
         >
           <a href="#home" onClick={(e) => scrollToSection(e, "home")}>
             <CircleSidebar Icon={IoMdHome} />
@@ -324,7 +324,7 @@ export default function Home() {
           
         >
           <div
-            className=" py-20 w-[80%] relative gap-5 rounded-2xl bg-gradient-to-r from-purple/40 to-pink/40 animate-fade"
+            className=" py-20 w-[80%] relative gap-5 rounded-2xl  animate-fade element2   bg-gradient-to-r from-purple/40 to-pink/40 transition-all duration-300 flex flex-col  justify-center items-center  elemento "
             style={{ backdropFilter: "blur(10px)" }}
             
           >
