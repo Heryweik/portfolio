@@ -134,17 +134,31 @@ export default function About({ language }: { language: string }) {
               className="flex flex-col sm:flex-row justify-center gap-4 sm:justify-evenly"
               data-aos="fade-up"
             >
-              <a href={language === "es" ? "/CVES.pdf" : "/CVEN.pdf"} download="YhonnyAplicanoCV.pdf">
-              <Button
-                name={language === "es" ? "Descargar CV" : "Download CV"}
-                Icon={FaFileDownload}
-              />
+              <button
+                  className=" bg-pink dark:bg-purple flex justify-center items-center  whitespace-nowrap rounded-2xl p-[3px] font-semibold hover:bg-gradient-to-r hover:from-purple hover:to-pink dark:hover:bg-purple/60 hover:transition-all hover:duration-300 hover:ease-in-out "
+                >
+                
+            <a href={language === "es" ? "/CVES.pdf" : "/CVEN.pdf"} download="YhonnyAplicanoCV.pdf"
+            className="flex flex-1">
+                  <span className="bg-white dark:bg-black flex-1 lg:px-5 lg:py-2 p-2 rounded-xl rounded-e-none">
+                  {language === "es" ? "Descargar CV" : "Download CV"}
+                  </span>
+
+                  <div className=" p-2 lg:px-4 rounded-2xl">
+                    <FaFileDownload className="m-auto text-lg lg:text-2xl" />
+                  </div>
+                  
               </a>
-              <a href={language === "es" ? "/CVES.pdf" : "/CVEN.pdf"} target="_blank" rel="noopener noreferrer">
+                </button>
+
+
                 <button
                   className=" bg-pink dark:bg-purple flex justify-center items-center  whitespace-nowrap rounded-2xl p-[3px] font-semibold hover:bg-gradient-to-r hover:from-purple hover:to-pink dark:hover:bg-purple/60 hover:transition-all hover:duration-300 hover:ease-in-out "
                   /* onClick={handleMenuClick} */
                 >
+                  
+              <a href={language === "es" ? "/CVES.pdf" : "/CVEN.pdf"} target="_blank" rel="noopener noreferrer"
+              className="flex flex-1">
                   <span className="bg-white dark:bg-black flex-1 lg:px-5 lg:py-2 p-2 rounded-xl rounded-e-none">
                     {language === "es" ? "Ver CV" : "Watch CV"}
                   </span>
@@ -152,8 +166,9 @@ export default function About({ language }: { language: string }) {
                   <div className=" p-2 lg:px-4 rounded-2xl">
                     <FaEye className="m-auto text-lg lg:text-2xl" />
                   </div>
-                </button>
+                  
               </a>
+                </button>
             </div>
           </div>
         </div>

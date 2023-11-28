@@ -50,7 +50,7 @@ export default function Contact({ language }: { language: string }) {
             data-aos="fade-up"
           >
             <img
-              src="/footer.jpg"
+              src="/footer.JPG"
               alt=""
               className="object-cover mt-[-15px] sm:mt-[-20px] md:mt-[-30px]"
             />
