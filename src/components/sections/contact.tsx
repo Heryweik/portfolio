@@ -6,7 +6,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import RowCircle from "@/components/rowCircle";
 
-export default function Contact() {
+export default function Contact({ language }: { language: string }) {
   return (
     <>
       <div className="relative px-5 lg:px-16 py-5 w-full  flex flex-col  gap-14 ">
@@ -120,7 +120,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className=" mb-2 text-center  md:col-span-2">
+        <div className=" mb-2 text-center font-extralight  md:col-span-2">
           <span className="">Copyright @ 2023 - Yhonny Aplicano</span>
         </div>
       </div>

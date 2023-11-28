@@ -7,7 +7,7 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import RowTriangle from "@/components/rowTriangle";
 
-export default function About() {
+export default function About({ language }: { language: string }) {
   return (
     <>
       <div className="relative px-5 lg:px-16 py-10 w-full flex-1 flex flex-col ">
@@ -23,7 +23,7 @@ export default function About() {
                 color: "transparent",
               }}
             >
-              About Me
+              {language === 'es' ? 'Acerca de mí' : 'About Me'}
             </span>
           </h1>
           <div className="hidden md:grid grid-cols-6 gap-3 " data-aos="fade-up">

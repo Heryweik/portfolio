@@ -46,14 +46,12 @@ export default function Home() {
 
   /* Theme dark */
   const [theme, setTheme] = useState(() => {
-    if (
+    const prefersDarkMode =
       typeof window !== "undefined" &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-      return "dark";
-    }
-
-    return "light";
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+  
+    return prefersDarkMode ? "dark" : "light";
   });
 
   useEffect(() => {
@@ -94,16 +92,27 @@ export default function Home() {
     setIsTranslate(!isTranslate);
   };
 
+  /* Language */
+  const [isSpanish, setIsSpanish] = useState(false);
+
+  const changeLanguage = () => {
+    setIsSpanish(!isSpanish);
+  };
+
+  const language = isSpanish ? "es" : "en";
+
   /* Crea animacion para le cambio de idioma */
   const [isClicked, setIsClicked] = useState(false);
 
   const handleArrowClick = () => {
     setIsClicked(true);
 
-    // Después de 300ms (duración de la animación), restablecer el estado
     setTimeout(() => {
       setIsClicked(false);
     }, 300);
+
+    // Cambiar el idioma
+    changeLanguage();
   };
 
   /* Scroll suave a secciones */
@@ -131,8 +140,9 @@ export default function Home() {
   };
 
   return (
-    <main className="relative dark:text-white m-auto text-sm lg:text-base">
+    <main className="relative dark:text-white m-auto text-sm lg:text-base max-w-[1920px]">
       <div className="relative ml-0">
+        {/* Row Sidebar flotante */}
         <div
           className={`fixed top-1/2 right-0 transform -translate-y-1/2 h-auto bg-gradient-to-r from-purple/40 to-pink/40 transition-all duration-300 rounded-s-2xl flex justify-center items-center z-10 
             ${
@@ -153,8 +163,10 @@ export default function Home() {
             <FaChevronLeft className="text-lg md:text-2xl" />
           </button>
         </div>
+          
+          {/* Sidebar flotante */}
         <div
-          className={`fixed top-1/2 right-3 transform -translate-y-1/2 h-auto bg-gradient-to-r from-purple/40 to-pink/40 transition-all duration-300 flex flex-col gap-4 justify-center items-center p-1 py-4 w-auto rounded-full z-50 element ${
+          className={`fixed top-1/2 right-3 transform -translate-y-1/2 h-auto bg-gradient-to-r from-purple/40 to-pink/40 transition-all duration-300 flex flex-col gap-4 justify-center items-center p-1 py-4 w-auto rounded-full z-40 element ${
             isTranslate
               ? ""
               : "opacity-0 translate-x-36 transition-all invisible "
@@ -182,19 +194,23 @@ export default function Home() {
           </a>
 
           <div
-            className={`arrow-container ${
-              isClicked ? "clicked" : ""
-            } border-b-2 border-black dark:border-white`}
-            onClick={handleArrowClick}
-          >
-            En
-            <FaLongArrowAltUp className={`arrow-up ${isClicked ? "up" : ""}`} />
-            <FaLongArrowAltDown
-              className={`arrow-down ${isClicked ? "down" : ""} ml-[-10px]`}
-            />
-          </div>
+                  className={`arrow-container ${
+                    isClicked ? "clicked" : ""
+                  } border-b-2 border-black dark:border-white`}
+                  onClick={handleArrowClick}
+                >
+                  {language === 'es' ? 'Es' : 'En'}
+                  <FaLongArrowAltUp
+                    className={`arrow-up ${isClicked ? "up" : ""}`}
+                  />
+                  <FaLongArrowAltDown
+                    className={`arrow-down ${
+                      isClicked ? "down" : ""
+                    } ml-[-10px]`}
+                  />
+                </div>
 
-          <label className="switch z-40 w-[44px] h-[20px] md:w-[64px] md:h-[34px] text-[12px] md:text-[17px] ">
+          <label className="switch z-40 w-[44px] h-[20px] lg:w-[64px] lg:h-[34px] text-[12px] lg:text-[17px] ">
             <span className="sun ">
               <IoMdSunny />
             </span>
@@ -207,10 +223,10 @@ export default function Home() {
               onChange={handleTheme}
               checked={theme === "dark"}
             />
-            <span className="slider left-1 bottom-1 md:before:left-[2px] md:before:bottom-[2px] before:w-[20px] before:h-[20px] md:before:w-[30px] md:before:h-[30px]"></span>
+            <span className="slider left-1 bottom-1 lg:before:left-[2px] lg:before:bottom-[2px] before:w-[20px] before:h-[20px] lg:before:w-[30px] lg:before:h-[30px]"></span>
           </label>
 
-          <button className="bg-pink dark:bg-purple p-3 rounded-full hover:bg-gradient-to-r hover:from-purple hover:to-pink hover:transition-all hover:duration-300 hover:ease-in-out ">
+          <button className="bg-pink dark:bg-purple p-2 lg:p-3 rounded-full hover:bg-gradient-to-r hover:from-purple hover:to-pink hover:transition-all hover:duration-300 hover:ease-in-out ">
             <FaFileDownload className="text-lg md:text-2xl" />
           </button>
 
@@ -223,19 +239,10 @@ export default function Home() {
         </div>
 
         <section id="home" className=" min-h-screen w-full flex flex-col">
+          {/* Navbar */}
           <nav className=" w-full h-auto p-5 flex justify-center items-center gap-5 sticky top-0 z-30 bg-white dark:bg-black transition-all duration-300 ease-in-out">
-            <div className=" font-semibold flex h-10 items-center justify-center gap-5 flex-1">
-              <div>
-                <button
-                  className="block lg:hidden text-3xl transition-transform duration-300 transform m-auto"
-                  onClick={handleMenuClick}
-                  style={{
-                    transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
-                  }}
-                >
-                  {isOpen ? <MdOutlineZoomOutMap /> : <IoMenu />}
-                </button>
-              </div>
+            <div className=" font-semibold flex h-10 items-center justify-center  flex-1">
+              
 
               <div className="hidden lg:flex items-center justify-center lg:justify-start gap-5">
                 <Circle Icon={FaGithub} />
@@ -273,14 +280,25 @@ export default function Home() {
                 />
               </div>
 
-              <div className="flex items-center  md:justify-center gap-5">
+              <div className="flex flex-1 lg:flex-none items-center justify-between  lg:justify-center  gap-5">
+              <div>
+                <button
+                  className="block lg:hidden text-3xl transition-transform duration-300 transform m-auto"
+                  onClick={handleMenuClick}
+                  style={{
+                    transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
+                  }}
+                >
+                  {isOpen ? <MdOutlineZoomOutMap /> : <IoMenu />}
+                </button>
+              </div>
                 <div
                   className={`arrow-container ${
                     isClicked ? "clicked" : ""
                   } border-b-2 border-black dark:border-white`}
                   onClick={handleArrowClick}
                 >
-                  En
+                  {language === 'es' ? 'Es' : 'En'}
                   <FaLongArrowAltUp
                     className={`arrow-up ${isClicked ? "up" : ""}`}
                   />
@@ -291,7 +309,7 @@ export default function Home() {
                   />
                 </div>
 
-                <label className="switch z-40 w-[44px] h-[20px] md:w-[64px] md:h-[34px] text-[12px] md:text-[17px] ">
+                <label className="switch z-40 w-[47px] h-[20px] lg:w-[64px] lg:h-[34px] text-[12px] lg:text-[17px] ">
                   <span className="sun ">
                     <IoMdSunny />
                   </span>
@@ -304,27 +322,27 @@ export default function Home() {
                     onChange={handleTheme}
                     checked={theme === "dark"}
                   />
-                  <span className="slider left-1 bottom-1 md:before:left-[2px] md:before:bottom-[2px] before:w-[20px] before:h-[20px] md:before:w-[30px] md:before:h-[30px]"></span>
+                  <span className="slider before:left-[1px] bottom-1 lg:before:left-[2px] lg:before:bottom-[2px] before:w-[20px] before:h-[20px] lg:before:w-[30px] lg:before:h-[30px]"></span>
                 </label>
 
                 <div className="hidden md:block">
                   <Button name="Download CV" Icon={FaFileDownload} />
                 </div>
-                <button className="bg-pink dark:bg-purple p-3 rounded-full hover:bg-gradient-to-r hover:from-purple hover:to-pink hover:transition-all hover:duration-300 hover:ease-in-out block md:hidden">
+                <button className="bg-pink dark:bg-purple p-2 rounded-full hover:bg-gradient-to-r hover:from-purple hover:to-pink hover:transition-all hover:duration-300 hover:ease-in-out block md:hidden">
                   <FaFileDownload className="text-lg md:text-2xl" />
                 </button>
               </div>
             </div>
           </nav>
 
-          <HomeSection />
+          <HomeSection language={language}/>
         </section>
 
         {/* Navbar flotante */}
         <div
           className={`fixed top-0 left-0 w-full h-full ${
             isOpen ? "flex " : "hidden"
-          } flex-col items-center justify-center bg-pink/5 dark:bg-purple/20 z-40 lg:invisible`}
+          } flex-col items-center justify-center bg-pink/5 dark:bg-purple/20 z-50 lg:invisible`}
         >
           <div
             className=" py-20 w-[80%] relative gap-5 rounded-2xl  animate-fade element2   bg-gradient-to-r from-purple/40 to-pink/40 transition-all duration-300 flex flex-col  justify-center items-center  elemento "
@@ -375,21 +393,20 @@ export default function Home() {
         </div>
 
         <section id="about" className="flex min-h-screen flex-col ">
-          {" "}
           {/* border-t-[3px] border-b-[3px] border-purple/40 shadow-custom2 */}
-          <About />
+          <About language={language} />
         </section>
 
         <section id="resume" className="flex min-h-screen">
-          <Resume />
+          <Resume language={language}/>
         </section>
 
         <section id="projects" className="flex min-h-screen flex-col ">
-          <Projects />
+          <Projects language={language}/>
         </section>
 
         <section id="contact" className="grid min-h-screen ">
-          <Contact />
+          <Contact language={language}/>
         </section>
       </div>
     </main>

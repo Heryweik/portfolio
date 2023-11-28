@@ -4,7 +4,25 @@ import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
 import RowCircle from "@/components/rowCircle";
 
-export default function HomeSection() {
+export default function HomeSection({ language }: { language: string }) {
+
+   /* Scroll suave a secciones */
+   const scrollToSection = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    sectionId: string
+  ) => {
+    e.preventDefault();
+
+    const targetSection = document.getElementById(sectionId);
+
+    if (targetSection) {
+      window.scrollTo({
+        top: targetSection.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <section className="relative px-5 lg:px-16 py-5 w-full flex-1 flex flex-col justify-between items-stretch md:mt-16">
       <div className="md:py-11 flex flex-col md:flex-row items-start md:items-center gap-5 md:gap-0 justify-between ">
@@ -35,7 +53,7 @@ export default function HomeSection() {
               className="text-black dark:text-white inline-block m-auto"
               
             >
-              Junior Web
+              Web
             </span>
           </h2>
         </div>
@@ -57,7 +75,9 @@ export default function HomeSection() {
 
       <div className="bg-purple/30 dark:bg-pink/30 w-full sm:w-[80%] md:w-2/3 h-[18%] md:h-1/4 absolute right-0 bottom-[20%] md:bottom-1/4 sm:rounded-s-2xl rounded-e-none z-20 flex">
         <div className="flex-1 relative flex items-center ml-4 sm:ml-14 md:ml-28">
+        <a href="#about" onClick={(e) => scrollToSection(e, "about")}>
           <Button name="About me" Icon={FaArrowRight} />
+          </a>
         </div>
       </div>
 

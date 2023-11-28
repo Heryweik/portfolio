@@ -33,11 +33,12 @@ interface Project {
   Icon4: React.ElementType;
   Icon5: React.ElementType;
   Icon6: React.ElementType;
-  description: string;
+  description: (lang: string) => string;
   images: string[];
+  date: string;
 }
 
-export default function Projects() {
+export default function Projects({ language }: { language: string }) {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [selectedProjectIndex, setSelectedProjectIndex] = useState<
     number | null
@@ -53,8 +54,12 @@ export default function Projects() {
       Icon4: SiTailwindcss,
       Icon5: FaNode,
       Icon6: FaFigma,
-      description: "Descripción detallada de UniExchange.",
+      description: (lang: string) =>
+      lang === 'es'
+        ? 'UniExchange es una plataforma educativa y social diseñada para conectar a estudiantes, docentes y universidades. Ofrece un espacio de administración para universidades; Los estudiantes tienen la capacidad de unirse a facultades, realizar publicaciones y calificar a sus profesores.'
+        : 'UniExchange is an educational and social platform designed to connect students, teachers, and universities. It provides an administration space for universities, while students have the ability to join faculties, make posts, and rate their teachers. ',
       images: ["/ue1.png", "/ue2.png", "/ue3.png"],
+      date: "28/11/2023",
     },
     {
       name: "CodeWeb",
@@ -65,8 +70,12 @@ export default function Projects() {
       Icon4: FaBootstrap,
       Icon5: FaNode,
       Icon6: FaFigma,
-      description: "Descripción detallada de CodeWeb.",
+      description: (lang: string) =>
+      lang === 'es'
+        ? 'CodeWeb es una plataforma de programación colaborativa para crear proyectos con HTML, CSS y JavaScript. Permite compartir y visualizar proyectos con otros usuarios, y cuenta con un espacio de administración.'
+        : 'CodeWeb is a collaborative programming platform for creating projects with HTML, CSS and JavaScript. It allows you to share and view projects with other users, and has an administration space.',
       images: ["/cw1.png", "/cw2.png", "/cw3.png"],
+      date: "22/08/2023",
     },
     {
       name: "DentalServices",
@@ -77,8 +86,12 @@ export default function Projects() {
       Icon4: FaBootstrap,
       Icon5: FaNode,
       Icon6: FaFigma,
-      description: "Descripción detallada de DentalServices.",
-      images: ["/ue1.png", "/ue2.png", "/ue3.png"],
+      description: (lang: string) =>
+      lang === 'es'
+        ? 'DentalServices es una plataforma SaaS para la gestión de materiales y herramientas dentales. Incluye un sistema de ventas y un área de administración para los propietarios.'
+        : 'DentalServices is a SaaS platform for the management of dental materials and tools. It includes a sales system and an administration area for owners.',
+      images: ["/ds1.JPG", "/ds2.JPG", "/ds3.JPG"],
+      date: "03/07/2023",
     },
     {
       name: "504MarketPlace",
@@ -89,8 +102,12 @@ export default function Projects() {
       Icon4: FaBootstrap,
       Icon5: FaNode,
       Icon6: FaFigma,
-      description: "Descripción detallada de 504MarketPlace.",
+      description: (lang: string) =>
+      lang === 'es'
+        ? '504MarketPlace es una plataforma tipo MarketPlace, donde cualquier usuario puede comprar y vender productos. Cuenta con un sistema de filtros, denuncias y otros aspectos clave de una plataforma de su tipo.'
+        : '504MarketPlace is a MarketPlace type platform, where any user can buy and sell products. It has a system of filters, complaints and other key aspects of a platform of its type.',
       images: ["/ue1.png", "/ue2.png", "/ue3.png"],
+      date: "16/03/2023",
     },
   ];
 
@@ -144,7 +161,7 @@ export default function Projects() {
             data-aos="fade-up"
           >
             <h2 className="font-bold text-base sm:text-lg md:text-xl lg:text-2xl tracking-[.5rem]">
-              Explore my projects
+            {language === 'es' ? 'Explora mis proyectos' : 'Explore my projects'}
             </h2>
             <div className="flex flex-1 flex-wrap gap-5 lg:gap-20 justify-center">
               {projects.map((project, index) => (
@@ -180,12 +197,13 @@ export default function Projects() {
                     <selectedProject.Icon6 className="text-3xl" />
                   </div>
 
-                  <span>{selectedProject.description}</span>
+                  <span>{selectedProject.description(language)}</span>
+                  <span className="font-bold">{selectedProject.date}</span>
                 </div>
               </div>
 
               <div
-                className="flex-1 flex col-span-3 border-2 border-purple/30 dark:border-pink/30 rounded-2xl"
+                className="flex-1 flex justify-center items-center col-span-3 border-2 border-purple/30 dark:border-pink/30 rounded-2xl"
                 data-aos="fade-up"
               >
                 <Swiper

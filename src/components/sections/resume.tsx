@@ -24,7 +24,7 @@ import RowTriangle from "@/components/rowTriangle";
 import Skills from "@/components/skills";
 import Skill from "@/components/skill";
 
-export default function Resume() {
+export default function Resume({ language }: { language: string }) {
   return (
     <>
       <div className="relative px-5 lg:px-16 py-10 w-full flex-1 flex flex-col">
