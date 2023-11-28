@@ -6,8 +6,17 @@ import { FaGithub } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import RowTriangle from "@/components/rowTriangle";
+import { IoMdClose } from "react-icons/io";
+import { useState } from "react";
 
 export default function About({ language }: { language: string }) {
+  /* Modal CV */
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleMenuClick = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
       <div className="relative px-5 lg:px-16 py-10 w-full flex-1 flex flex-col ">
@@ -125,17 +134,54 @@ export default function About({ language }: { language: string }) {
               className="flex flex-col sm:flex-row justify-center gap-4 sm:justify-evenly"
               data-aos="fade-up"
             >
+              <a href={language === "es" ? "/CVES.pdf" : "/CVEN.pdf"} download="YhonnyAplicanoCV.pdf">
               <Button
                 name={language === "es" ? "Descargar CV" : "Download CV"}
                 Icon={FaFileDownload}
               />
-              <Button
-                name={language === "es" ? "Ver CV" : "Watch CV"}
-                Icon={FaEye}
-              />
+              </a>
+              <a href={language === "es" ? "/CVES.pdf" : "/CVEN.pdf"} target="_blank" rel="noopener noreferrer">
+                <button
+                  className=" bg-pink dark:bg-purple flex justify-center items-center  whitespace-nowrap rounded-2xl p-[3px] font-semibold hover:bg-gradient-to-r hover:from-purple hover:to-pink dark:hover:bg-purple/60 hover:transition-all hover:duration-300 hover:ease-in-out "
+                  /* onClick={handleMenuClick} */
+                >
+                  <span className="bg-white dark:bg-black flex-1 lg:px-5 lg:py-2 p-2 rounded-xl rounded-e-none">
+                    {language === "es" ? "Ver CV" : "Watch CV"}
+                  </span>
+
+                  <div className=" p-2 lg:px-4 rounded-2xl">
+                    <FaEye className="m-auto text-lg lg:text-2xl" />
+                  </div>
+                </button>
+              </a>
             </div>
           </div>
         </div>
+        {/* <div
+          className={`fixed top-0 left-0 w-full h-full ${
+            isOpen ? "flex " : "hidden"
+          } flex-col items-center justify-center bg-pink/5 dark:bg-purple/20 z-50 p-5`}
+        >
+          <div
+            className=" pt-11 relative rounded-2xl  animate-fade element2   bg-gradient-to-r from-purple/40 to-pink/40 transition-all duration-300 flex flex-col  justify-center items-center  elemento w-96 h-full"
+            style={{ backdropFilter: "blur(10px)" }}
+          >
+
+            <button
+              className="absolute top-3 right-3 text-2xl "
+              onClick={handleMenuClick}
+            >
+              <IoMdClose />
+            </button>
+            <div className="flex  items-center justify-center  overflow-hidden">
+            <img
+                src="/CVES.pdf"
+                alt="Imagen de about"
+                className="h-full rounded-b-2xl"
+              />
+            </div>
+          </div>
+        </div> */}
       </div>
     </>
   );

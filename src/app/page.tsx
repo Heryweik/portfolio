@@ -222,9 +222,14 @@ export default function Home() {
             <span className="slider left-1 bottom-1 lg:before:left-[2px] lg:before:bottom-[2px] before:w-[20px] before:h-[20px] lg:before:w-[30px] lg:before:h-[30px]"></span>
           </label>
 
-          <button className="bg-pink dark:bg-purple p-2 lg:p-3 rounded-full hover:bg-gradient-to-r hover:from-purple hover:to-pink hover:transition-all hover:duration-300 hover:ease-in-out ">
-            <FaFileDownload className="text-lg md:text-2xl" />
-          </button>
+          <a
+            href={language === "es" ? "/CVES.pdf" : "/CVEN.pdf"}
+            download="YhonnyAplicanoCV.pdf"
+          >
+            <button className="bg-pink dark:bg-purple p-2 lg:p-3 rounded-full hover:bg-gradient-to-r hover:from-purple hover:to-pink hover:transition-all hover:duration-300 hover:ease-in-out ">
+              <FaFileDownload className="text-lg md:text-2xl" />
+            </button>
+          </a>
 
           <button
             className="hover:text-pink flex-1 py-1 px-[2px] z-30"
@@ -326,14 +331,25 @@ export default function Home() {
                 </div>
 
                 <div className="hidden md:block">
-                  <Button
-                    name={language === "es" ? "Descargar CV" : "Download CV"}
-                    Icon={FaFileDownload}
-                  />
+                  <a
+                    href={language === "es" ? "/CVES.pdf" : "/CVEN.pdf"}
+                    download="YhonnyAplicanoCV.pdf"
+                  >
+                    <Button
+                      name={language === "es" ? "Descargar CV" : "Download CV"}
+                      Icon={FaFileDownload}
+                    />
+                  </a>
                 </div>
-                <button className="bg-pink dark:bg-purple p-2 rounded-full hover:bg-gradient-to-r hover:from-purple hover:to-pink hover:transition-all hover:duration-300 hover:ease-in-out block md:hidden">
-                  <FaFileDownload className="text-lg md:text-2xl" />
-                </button>
+                <a
+                  href={language === "es" ? "/CVES.pdf" : "/CVEN.pdf"}
+                  download="YhonnyAplicanoCV.pdf"
+                  className="block md:hidden"
+                >
+                  <button className="bg-pink dark:bg-purple p-2 rounded-full hover:bg-gradient-to-r hover:from-purple hover:to-pink hover:transition-all hover:duration-300 hover:ease-in-out block md:hidden">
+                    <FaFileDownload className="text-lg md:text-2xl" />
+                  </button>
+                </a>
               </div>
             </div>
           </nav>
