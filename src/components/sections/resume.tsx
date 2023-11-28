@@ -40,7 +40,7 @@ export default function Resume({ language }: { language: string }) {
                 color: "transparent",
               }}
             >
-              Resume
+              {language === 'es' ? 'Resumen' : 'Resume'}
             </span>
           </h1>
           <div className="hidden md:grid grid-cols-6 gap-3 " data-aos="fade-up">
@@ -52,7 +52,7 @@ export default function Resume({ language }: { language: string }) {
           <div className=" w-full flex flex-col items-center justify-center p-5 border-2 border-purple/30 dark:border-pink/30  rounded-2xl gap-5"
           data-aos="fade-up">
             <h2 className="font-bold text-base sm:text-lg md:text-xl lg:text-2xl tracking-[.5rem]">
-              Tecnologies
+            {language === 'es' ? 'Tecnologías' : 'Tecnologies'}
             </h2>
 
             <div className="flex flex-wrap w-full gap-5 justify-center items-center">
@@ -87,7 +87,7 @@ export default function Resume({ language }: { language: string }) {
           data-aos="fade-up">
             <div className="p-5  border-2 border-purple/30 dark:border-pink/30  rounded-2xl flex flex-col items-center justify-center gap-4 w-full">
               <h2 className="font-bold text-base sm:text-lg md:text-xl lg:text-2xl tracking-[.5rem]">
-                Education
+              {language === 'es' ? 'Educación' : 'Education'}
               </h2>
               <div className="flex flex-col ">
                 <div className="flex gap-4">
@@ -96,9 +96,11 @@ export default function Resume({ language }: { language: string }) {
                   </div>
                   <div className="flex flex-col justify-center">
                     <span className="font-bold">
-                      Professional computer technician
+                    {language === 'es' ? 'Tecnico profesional en informatica' : 'Professional computer technician'}
                     </span>
-                    <span className=" text-sm">Tecnologico del sur</span>
+                    <span className=" text-sm">
+                      {language === 'es' ? 'Tecnológico del sur' : 'Southern Technological'}
+                      </span>
                   </div>
                 </div>
 
@@ -108,12 +110,13 @@ export default function Resume({ language }: { language: string }) {
 
                 <div className="flex gap-4">
                   <div className="p-2 rounded-lg min-w-[5rem]  max-w-[5rem] md:min-w-[6rem]  md:max-w-[6rem] border-[2px] border-pink dark:border-purple grid place-content-center text-base md:text-lg text-center">
-                    <span className="font-semibold">Present</span>
+                    <span className="font-semibold">{language === 'es' ? 'Presente' : 'Present'}</span>
                   </div>
                   <div className="flex flex-col justify-center">
-                    <span className="font-bold">Software engineer</span>
+                    <span className="font-bold">
+                    {language === 'es' ? 'Ingenieria en Sistemas' : 'Software Engineering'}</span>
                     <span className=" text-sm">
-                      Universidad Nacional Autonoma de Honduras
+                    {language === 'es' ? 'Universidad Nacional Autonoma de Honduras' : 'National Autonomous University of Honduras'}
                     </span>
                   </div>
                 </div>
@@ -122,50 +125,50 @@ export default function Resume({ language }: { language: string }) {
 
             <div className="p-1 sm:p-5  border-2 border-purple/30 dark:border-pink/30  rounded-2xl flex flex-col items-center justify-center gap-4 w-full"
             data-aos="fade-up">
-              <h2 className="font-bold text-base sm:text-lg md:text-xl lg:text-2xl tracking-[.5rem]">
-                Personal Skills
+              <h2 className="font-bold text-base sm:text-lg md:text-xl lg:text-2xl tracking-[.5rem] text-center">
+              {language === 'es' ? 'Habilidades personales' : 'Personal Skills'}
               </h2>
               <div className="flex gap-2 items-center">
-                <span>Creativity</span>
+                <span>{language === 'es' ? 'Creatividad' : 'Creativity'}</span>
                 <div className="w-3 lg:w-10 h-[2px] bg-pink dark:bg-purple rounded-full"></div>
-                <span>TeamWork</span>
+                <span>{language === 'es' ? 'Trabajo en equipo' : 'TeamWork'}</span>
                 <div className="w-3 lg:w-10 h-[2px] bg-pink dark:bg-purple rounded-full"></div>
-                <span>Organized</span>
+                <span>{language === 'es' ? 'Organizado' : 'Organized'}</span>
               </div>
               <div className="flex gap-2 items-center">
-                <span>Versatile</span>
+                <span>{language === 'es' ? 'Versátil' : 'Versatile'}</span>
                 <div className="w-3 lg:w-10 h-[2px] bg-pink dark:bg-purple rounded-full"></div>
-                <span>Adaptable</span>
+                <span>{language === 'es' ? 'Adaptable' : 'Adaptable'}</span>
                 <div className="w-3 lg:w-10 h-[2px] bg-pink dark:bg-purple rounded-full"></div>
-                <span>Disciplined</span>
+                <span>{language === 'es' ? 'Disciplinado' : 'Disciplined'}</span>
               </div>
             </div>
 
-            <div className="p-5  border-2 border-purple/30 dark:border-pink/30  rounded-2xl flex flex-col items-center justify-center gap-4 w-full "
+            <div className="p-5  border-2 border-purple/30 dark:border-pink/30  rounded-2xl flex flex-col items-center justify-center gap-4 w-full overflow-auto"
             data-aos="fade-up">
               <h2 className="font-bold text-base sm:text-lg md:text-xl lg:text-2xl tracking-[.5rem]">
-                Hobbyes
+              {language === 'es' ? 'Aficiones' : 'Hobbies'}
               </h2>
               <div className="flex gap-3 sm:gap-6 md:gap-10">
                 <div className="flex flex-col items-center gap-2">
                   <div className="p-2 rounded-lg border-[2px] border-pink dark:border-purple text-4xl">
                     <CgGym />
                   </div>
-                  <span>Gym</span>
+                  <span>{language === 'es' ? 'Gimnasio' : 'Gym'}</span>
                 </div>
 
                 <div className="flex flex-col items-center gap-2">
                   <div className="p-2 rounded-lg border-[2px] border-pink dark:border-purple text-4xl">
                     <MdVideogameAsset />
                   </div>
-                  <span>Videogames</span>
+                  <span>{language === 'es' ? 'Video Juegos' : 'Video Games'}</span>
                 </div>
 
                 <div className="flex flex-col items-center gap-2">
                   <div className="p-2 rounded-lg border-[2px] border-pink dark:border-purple text-4xl">
                     <PiFilmStripFill />
                   </div>
-                  <span>Films</span>
+                  <span>{language === 'es' ? 'Películas' : 'Films'}</span>
                 </div>
               </div>
             </div>

@@ -25,9 +25,9 @@ export default function HomeSection({ language }: { language: string }) {
 
   return (
     <section className="relative px-5 lg:px-16 py-5 w-full flex-1 flex flex-col justify-between items-stretch md:mt-16">
-      <div className="md:py-11 flex flex-col md:flex-row items-start md:items-center gap-5 md:gap-0 justify-between ">
+      <div className="md:py-9 flex flex-col md:flex-row items-start md:items-center gap-5 md:gap-0 justify-between ">
         <div className="flex gap-5 flex-col items-start  xl:flex-row">
-          <div className="flex flex-col sm:gap-6">
+          <div className="flex flex-col sm:gap-6 z-20">
             <h1 className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-[1.5rem]">
               YHONNY YUPANKY
             </h1>
@@ -45,7 +45,7 @@ export default function HomeSection({ language }: { language: string }) {
               className="text-black dark:text-white inline-block m-auto"
               
             >
-              Developer
+              {language === 'es' ? 'Web' : 'Developer'}
             </span>
           </h2>
           <h2 style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}>
@@ -53,7 +53,7 @@ export default function HomeSection({ language }: { language: string }) {
               className="text-black dark:text-white inline-block m-auto"
               
             >
-              Web
+              {language === 'es' ? 'Desarrollador' : 'Web'}
             </span>
           </h2>
         </div>
@@ -68,7 +68,7 @@ export default function HomeSection({ language }: { language: string }) {
             24
           </h2>
           <h2 className="font-bold tracking-[.5rem] flex items-center  text-base sm:text-lg md:text-xl lg:text-2xl">
-            YEARS
+          {language === 'es' ? 'AÑOS' : 'YEARS'}
           </h2>
         </div>
       </div>
@@ -76,18 +76,16 @@ export default function HomeSection({ language }: { language: string }) {
       <div className="bg-purple/30 dark:bg-pink/30 w-full sm:w-[80%] md:w-2/3 h-[18%] md:h-1/4 absolute right-0 bottom-[20%] md:bottom-1/4 sm:rounded-s-2xl rounded-e-none z-20 flex">
         <div className="flex-1 relative flex items-center ml-4 sm:ml-14 md:ml-28">
         <a href="#about" onClick={(e) => scrollToSection(e, "about")}>
-          <Button name="About me" Icon={FaArrowRight} />
+          <Button name={language === 'es' ? 'Acerca de mí' : 'About Me'} Icon={FaArrowRight} />
           </a>
         </div>
       </div>
 
-      {/* <Image
-            src="/perfil.JPG"
-            width={350}
-            height={50}
+      <img
+            src="/perfilB.png"
             alt="Imagen de perfil"
-            className="absolute right-48 bottom-[2%] z-20"
-          /> */}
+            className="absolute h-[30rem] right-12 bottom-[-1rem] sm:h-[30rem] sm:right-24 sm:bottom-[-1rem] md:h-full md:bottom-0 md:right-28 lg:right-40 xl:right-56  z-10"
+          />
     </section>
   );
 }

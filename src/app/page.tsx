@@ -50,7 +50,7 @@ export default function Home() {
       typeof window !== "undefined" &&
       window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches;
-  
+
     return prefersDarkMode ? "dark" : "light";
   });
 
@@ -163,8 +163,8 @@ export default function Home() {
             <FaChevronLeft className="text-lg md:text-2xl" />
           </button>
         </div>
-          
-          {/* Sidebar flotante */}
+
+        {/* Sidebar flotante */}
         <div
           className={`fixed top-1/2 right-3 transform -translate-y-1/2 h-auto bg-gradient-to-r from-purple/40 to-pink/40 transition-all duration-300 flex flex-col gap-4 justify-center items-center p-1 py-4 w-auto rounded-full z-40 element ${
             isTranslate
@@ -194,21 +194,17 @@ export default function Home() {
           </a>
 
           <div
-                  className={`arrow-container ${
-                    isClicked ? "clicked" : ""
-                  } border-b-2 border-black dark:border-white`}
-                  onClick={handleArrowClick}
-                >
-                  {language === 'es' ? 'Es' : 'En'}
-                  <FaLongArrowAltUp
-                    className={`arrow-up ${isClicked ? "up" : ""}`}
-                  />
-                  <FaLongArrowAltDown
-                    className={`arrow-down ${
-                      isClicked ? "down" : ""
-                    } ml-[-10px]`}
-                  />
-                </div>
+            className={`arrow-container ${
+              isClicked ? "clicked" : ""
+            } border-b-2 border-black dark:border-white`}
+            onClick={handleArrowClick}
+          >
+            {language === "es" ? "Es" : "En"}
+            <FaLongArrowAltUp className={`arrow-up ${isClicked ? "up" : ""}`} />
+            <FaLongArrowAltDown
+              className={`arrow-down ${isClicked ? "down" : ""} ml-[-10px]`}
+            />
+          </div>
 
           <label className="switch z-40 w-[44px] h-[20px] lg:w-[64px] lg:h-[34px] text-[12px] lg:text-[17px] ">
             <span className="sun ">
@@ -242,91 +238,98 @@ export default function Home() {
           {/* Navbar */}
           <nav className=" w-full h-auto p-5 flex justify-center items-center gap-5 sticky top-0 z-30 bg-white dark:bg-black transition-all duration-300 ease-in-out">
             <div className=" font-semibold flex h-10 items-center justify-center  flex-1">
-              
-
               <div className="hidden lg:flex items-center justify-center lg:justify-start gap-5">
-                <Circle Icon={FaGithub} />
-                <Circle Icon={FaLinkedinIn} />
+                <a href="https://github.com/Heryweik">
+                  <Circle Icon={FaGithub} />
+                </a>
+                <a href="https://www.linkedin.com/in/yhonny-yupanky-aplicano">
+                  <Circle Icon={FaLinkedinIn} />
+                </a>
               </div>
               <div className="hidden lg:flex  items-center justify-evenly flex-1">
                 <Navegation
-                  name="Home"
+                  name={language === "es" ? "Inicio" : "Home"}
                   href="#home"
                   scrollToSection={scrollToSection}
                 />
 
                 <Navegation
-                  name="About"
+                  name={language === "es" ? "Acerca de" : "About"}
                   href="#about"
                   scrollToSection={scrollToSection}
                 />
 
                 <Navegation
-                  name="Resume"
+                  name={language === "es" ? "Resumen" : "Resume"}
                   href="#resume"
                   scrollToSection={scrollToSection}
                 />
 
                 <Navegation
-                  name="Projects"
+                  name={language === "es" ? "Proyectos" : "Projects"}
                   href="#projects"
                   scrollToSection={scrollToSection}
                 />
 
                 <Navegation
-                  name="Contact"
+                  name={language === "es" ? "Contactos" : "Contact"}
                   href="#contact"
                   scrollToSection={scrollToSection}
                 />
               </div>
 
               <div className="flex flex-1 lg:flex-none items-center justify-between  lg:justify-center  gap-5">
-              <div>
-                <button
-                  className="block lg:hidden text-3xl transition-transform duration-300 transform m-auto"
-                  onClick={handleMenuClick}
-                  style={{
-                    transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
-                  }}
-                >
-                  {isOpen ? <MdOutlineZoomOutMap /> : <IoMenu />}
-                </button>
-              </div>
-                <div
-                  className={`arrow-container ${
-                    isClicked ? "clicked" : ""
-                  } border-b-2 border-black dark:border-white`}
-                  onClick={handleArrowClick}
-                >
-                  {language === 'es' ? 'Es' : 'En'}
-                  <FaLongArrowAltUp
-                    className={`arrow-up ${isClicked ? "up" : ""}`}
-                  />
-                  <FaLongArrowAltDown
-                    className={`arrow-down ${
-                      isClicked ? "down" : ""
-                    } ml-[-10px]`}
-                  />
+                <div>
+                  <button
+                    className="block lg:hidden text-3xl transition-transform duration-300 transform m-auto"
+                    onClick={handleMenuClick}
+                    style={{
+                      transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
+                    }}
+                  >
+                    {isOpen ? <MdOutlineZoomOutMap /> : <IoMenu />}
+                  </button>
+                </div>
+                <div className="flex justify-center items-center gap-5">
+                  <div
+                    className={`arrow-container ${
+                      isClicked ? "clicked" : ""
+                    } border-b-2 border-black dark:border-white`}
+                    onClick={handleArrowClick}
+                  >
+                    {language === "es" ? "Es" : "En"}
+                    <FaLongArrowAltUp
+                      className={`arrow-up ${isClicked ? "up" : ""}`}
+                    />
+                    <FaLongArrowAltDown
+                      className={`arrow-down ${
+                        isClicked ? "down" : ""
+                      } ml-[-10px]`}
+                    />
+                  </div>
+
+                  <label className="switch z-40 w-[47px] h-[20px] lg:w-[64px] lg:h-[34px] text-[12px] lg:text-[17px] ">
+                    <span className="sun ">
+                      <IoMdSunny />
+                    </span>
+                    <span className="moon">
+                      <FaMoon />
+                    </span>
+                    <input
+                      type="checkbox"
+                      className="input"
+                      onChange={handleTheme}
+                      checked={theme === "dark"}
+                    />
+                    <span className="slider before:left-[1px] bottom-1 lg:before:left-[2px] lg:before:bottom-[2px] before:w-[20px] before:h-[20px] lg:before:w-[30px] lg:before:h-[30px]"></span>
+                  </label>
                 </div>
 
-                <label className="switch z-40 w-[47px] h-[20px] lg:w-[64px] lg:h-[34px] text-[12px] lg:text-[17px] ">
-                  <span className="sun ">
-                    <IoMdSunny />
-                  </span>
-                  <span className="moon">
-                    <FaMoon />
-                  </span>
-                  <input
-                    type="checkbox"
-                    className="input"
-                    onChange={handleTheme}
-                    checked={theme === "dark"}
-                  />
-                  <span className="slider before:left-[1px] bottom-1 lg:before:left-[2px] lg:before:bottom-[2px] before:w-[20px] before:h-[20px] lg:before:w-[30px] lg:before:h-[30px]"></span>
-                </label>
-
                 <div className="hidden md:block">
-                  <Button name="Download CV" Icon={FaFileDownload} />
+                  <Button
+                    name={language === "es" ? "Descargar CV" : "Download CV"}
+                    Icon={FaFileDownload}
+                  />
                 </div>
                 <button className="bg-pink dark:bg-purple p-2 rounded-full hover:bg-gradient-to-r hover:from-purple hover:to-pink hover:transition-all hover:duration-300 hover:ease-in-out block md:hidden">
                   <FaFileDownload className="text-lg md:text-2xl" />
@@ -335,7 +338,7 @@ export default function Home() {
             </div>
           </nav>
 
-          <HomeSection language={language}/>
+          <HomeSection language={language} />
         </section>
 
         {/* Navbar flotante */}
@@ -355,36 +358,40 @@ export default function Home() {
               <IoMdClose />
             </button>
             <div className="flex items-center justify-center lg:justify-start gap-5 mb-5 ">
-              <Circle Icon={FaGithub} />
-              <Circle Icon={FaLinkedinIn} />
+              <a href="https://github.com/Heryweik">
+                <Circle Icon={FaGithub} />
+              </a>
+              <a href="https://www.linkedin.com/in/yhonny-yupanky-aplicano">
+                <Circle Icon={FaLinkedinIn} />
+              </a>
             </div>
             <div className="flex flex-col items-center justify-evenly flex-1 gap-5 font-semibold">
               <Navegation
-                name="Home"
+                name={language === "es" ? "Inicio" : "Home"}
                 href="#home"
                 scrollToSection={scrollToSection}
               />
 
               <Navegation
-                name="About"
+                name={language === "es" ? "Acerca de" : "About"}
                 href="#about"
                 scrollToSection={scrollToSection}
               />
 
               <Navegation
-                name="Resume"
+                name={language === "es" ? "Resumen" : "Resume"}
                 href="#resume"
                 scrollToSection={scrollToSection}
               />
 
               <Navegation
-                name="Projects"
+                name={language === "es" ? "Proyectos" : "Projects"}
                 href="#projects"
                 scrollToSection={scrollToSection}
               />
 
               <Navegation
-                name="Contact"
+                name={language === "es" ? "Contactos" : "Contact"}
                 href="#contact"
                 scrollToSection={scrollToSection}
               />
@@ -398,15 +405,15 @@ export default function Home() {
         </section>
 
         <section id="resume" className="flex min-h-screen">
-          <Resume language={language}/>
+          <Resume language={language} />
         </section>
 
         <section id="projects" className="flex min-h-screen flex-col ">
-          <Projects language={language}/>
+          <Projects language={language} />
         </section>
 
         <section id="contact" className="grid min-h-screen ">
-          <Contact language={language}/>
+          <Contact language={language} />
         </section>
       </div>
     </main>

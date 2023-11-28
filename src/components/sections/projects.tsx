@@ -147,7 +147,7 @@ export default function Projects({ language }: { language: string }) {
                 color: "transparent",
               }}
             >
-              Projects
+              {language === 'es' ? 'Proyectos' : 'Projects'}
             </span>
           </h1>
           <div className="hidden md:grid grid-cols-6 gap-3 " data-aos="fade-up">
