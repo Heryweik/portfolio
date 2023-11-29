@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.form {
+  @apply rounded-2xl border-[2px] border-pink dark:border-purple px-4 p-1 w-full md:w-[80%] lg:w-[60%] placeholder:text-black/50 dark:placeholder:text-white/50 text-black dark:text-white bg-white dark:bg-black
+}
+
 
 .element::before {
   content: '';

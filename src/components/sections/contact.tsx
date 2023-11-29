@@ -5,6 +5,7 @@ import Circle from "@/components/circle";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import RowCircle from "@/components/rowCircle";
+import { BsFillSendFill } from "react-icons/bs";
 
 export default function Contact({ language }: { language: string }) {
   return (
@@ -57,7 +58,7 @@ export default function Contact({ language }: { language: string }) {
           </div>
         </div>
 
-        <div className="relative col-span-1 md:pt-10 pb-3 flex flex-col items-center justify-between gap-2 ">
+        <div className="relative col-span-1 md:pt-10 pb-3 flex flex-col items-center justify-evenly gap-2 ">
           <div className="flex items-center gap-5 mt-28 sm:mt-32 md:mt-20">
             <a href="https://github.com/Heryweik">
               <Circle Icon={FaGithub} />
@@ -92,33 +93,53 @@ export default function Contact({ language }: { language: string }) {
         </div>
 
         <div className="relative col-span-1 md:pt-10 pb-3 flex flex-col items-center justify-between gap-2 ">
-          <div className="flex items-center gap-5 md:mt-20">
-            <Circle Icon={FaGithub} />
-            <Circle Icon={FaLinkedinIn} />
-          </div>
+          <form
+            action="https://formsubmit.co/d22fcdc750e24f0783c02bd6069613c8" method="POST"
+            className="w-full p-3 flex flex-col gap-2 justify-center items-center md:mt-24"
+          >
+            <h2 className="font-bold text-base sm:text-lg md:text-xl lg:text-2xl tracking-[.5rem] text-center md:text-left ">
+              {language === "es" ? "¡Hablemos!" : "Let's talk!"}
+            </h2>
+            <input
+              type="text"
+              name="name"
+              placeholder={language === "es" ? "Nombre" : "Name"}
+              className="form"
+              required
+            />
+            <input
+              type="text"
+              name="email"
+              placeholder={language === "es" ? "Correo Electronico" : "Email"}
+              className="form"
+              required
+            />
+            <textarea
+              name="comment"
+              id=""
+              placeholder={language === "es" ? "Comentario" : "Comment"}
+              cols={30}
+              rows={3}
+              className="form"
+              required
+            ></textarea>
+            <button
+              className=" bg-pink dark:bg-purple flex justify-center items-center  whitespace-nowrap rounded-2xl p-[3px] font-semibold hover:bg-gradient-to-r hover:from-purple hover:to-pink dark:hover:bg-purple/60 hover:transition-all hover:duration-300 hover:ease-in-out "
+              type="submit"
+              value={language === "es" ? "Enviar" : "Send"}
+            >
+              <span className="bg-white dark:bg-black flex-1 lg:px-5 lg:py-2 p-2 rounded-xl rounded-e-none">
+              {language === "es" ? "Enviar" : "Send"}
+              </span>
 
-          <div className="flex gap-2 flex-col justify-center ">
-            <div className="flex items-center gap-5">
-              <div className="p-3 rounded-full border-[2px] border-pink dark:border-purple ">
-                <FaLocationDot />
+              <div className=" p-2 lg:px-4 rounded-2xl">
+                <BsFillSendFill className="m-auto text-lg lg:text-2xl" />
               </div>
-              <span>Honduras, Francisco Morazan, Tegucigalpa</span>
-            </div>
+            </button>
 
-            <div className="flex items-center gap-5">
-              <div className="p-3 rounded-full border-[2px] border-pink dark:border-purple ">
-                <FaPhoneAlt />
-              </div>
-              <span>+504 8883-9705</span>
-            </div>
-
-            <div className="flex items-center gap-5">
-              <div className="p-3 rounded-full border-[2px] border-pink dark:border-purple ">
-                <IoMail />
-              </div>
-              <span>yhonny296@gmail.com</span>
-            </div>
-          </div>
+            <input type="hidden" name="_next" value="https://portfolio-brown-omega-42.vercel.app/" />
+            <input type="hidden" name="_captcha" value="false" />
+          </form>
         </div>
 
         <div className=" mb-2 text-center font-extralight  md:col-span-2">
