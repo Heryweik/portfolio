@@ -106,7 +106,7 @@ export default function Projects({ language }: { language: string }) {
       lang === 'es'
         ? '504MarketPlace es una plataforma tipo MarketPlace, donde cualquier usuario puede comprar y vender productos. Cuenta con un sistema de filtros, denuncias y otros aspectos clave de una plataforma de su tipo.'
         : '504MarketPlace is a MarketPlace type platform, where any user can buy and sell products. It has a system of filters, complaints and other key aspects of a platform of its type.',
-      images: ["/ue1.png", "/ue2.png", "/ue3.png"],
+      images: ["/mp1.png", "/mp2.png", "/mp3.png"],
       date: "16/03/2023",
     },
   ];
