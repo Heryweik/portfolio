@@ -70,7 +70,7 @@ export default function Projects({ language }: { language: string }) {
   const projects: Project[] = [
     {
       name: "TextEditor",
-      image: "/textEditor.PNG",
+      image: "/textEditor.png",
       Icon1: FaReact,
       Icon2: TbBrandNextjs,
       Icon3: FaStripeS,
@@ -87,7 +87,7 @@ export default function Projects({ language }: { language: string }) {
     },
     {
       name: "Taskify",
-      image: "/Taskify.PNG",
+      image: "/Taskify.png",
       Icon1: TbBrandNextjs,
       Icon2: SiPrisma,
       Icon3: FaDigitalOcean,
@@ -121,7 +121,7 @@ export default function Projects({ language }: { language: string }) {
     },
     {
       name: "RealtimeChat",
-      image: "/RealtimeChat.PNG",
+      image: "/RealtimeChat.png",
       Icon1: TbBrandNextjs,
       Icon2: DiRedis,
       Icon3: SiAxios,
@@ -139,7 +139,7 @@ export default function Projects({ language }: { language: string }) {
 
     {
       name: "FigPro",
-      image: "/FigPro.PNG",
+      image: "/FigPro.png",
       Icon1: FaReact,
       Icon2: TbBrandNextjs,
       Icon3: SiTailwindcss,
