@@ -65,7 +65,7 @@ export default function HomeSection({ language }: { language: string }) {
             className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-[1rem]"
             style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}
           >
-            24
+            25
           </h2>
           <h2 className="font-bold tracking-[.5rem] flex items-center  text-base sm:text-lg md:text-xl lg:text-2xl">
           {language === 'es' ? 'AÑOS' : 'YEARS'}

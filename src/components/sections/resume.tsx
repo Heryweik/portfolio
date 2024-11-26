@@ -138,7 +138,7 @@ export default function Resume({ language }: { language: string }) {
 
                 <div className="flex gap-4">
                   <div className="p-2 rounded-lg min-w-[5rem]  max-w-[5rem] md:min-w-[6rem]  md:max-w-[6rem] border-[2px] border-pink dark:border-purple grid place-content-center text-base md:text-lg text-center">
-                    <span className="font-semibold">{language === 'es' ? 'Presente' : 'Present'}</span>
+                    <span className="font-semibold">{language === 'es' ? '2024' : '2024'}</span>
                   </div>
                   <div className="flex flex-col justify-center">
                     <span className="font-bold">

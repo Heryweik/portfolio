@@ -102,7 +102,7 @@ export default function About({ language }: { language: string }) {
                 <span className="col-span-2">
                   {language === "es" ? "Edad" : "Age"}:
                 </span>
-                <span className="col-span-3">24</span>
+                <span className="col-span-3">25</span>
               </div>
 
               <div className="grid grid-cols-5 py-2 px-10">

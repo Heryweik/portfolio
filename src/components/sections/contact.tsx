@@ -143,7 +143,7 @@ export default function Contact({ language }: { language: string }) {
         </div>
 
         <div className=" mb-2 text-center font-extralight  md:col-span-2">
-          <span className="">Copyright @ 2023 - Yhonny Aplicano</span>
+          <span className="">Copyright @ 2024 - Yhonny Aplicano</span>
         </div>
       </div>
     </>
